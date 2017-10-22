@@ -1,0 +1,6 @@
+.taskEntity {
+  display: flex;
+}
+.taskEntity p {
+  margin-right: 1rem;
+}
