@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import './index.css';
 
 export class TaskEntity extends Component {
+
   render() {
-    const { taskName, taskDescription } = this.props
+    const { taskName, taskDescription, taskId, onDeleteTask } = this.props
     return (
-      <div className="taskEntity">
-        <p>Имя: {taskName}</p>
-        <p>Описание: {taskDescription}</p>
-      </div>
+      <tr>
+        <td>{taskName}</td>
+        <td>{taskDescription}</td>
+        <td>
+          <Button color='danger' className='Buton-delete' onClick={onDeleteTask} value={taskId}>x</Button>
+        </td>
+      </tr>
     );
   }
 }

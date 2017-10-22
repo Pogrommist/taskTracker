@@ -8,13 +8,13 @@ import { addTask } from '../../redux/actions/tasks'
 class App extends Component {
   handleSubmit = (values) => {
     console.log(values)
-    addTask(values)
+    this.props.addTask(values)
   }
 
   render() {
     return (
       <div className="App">
-        Task Manager
+        <h1>Task Manager</h1>
         <div className="task-inputs">
           <TaskInput onSubmit={this.handleSubmit} />
         </div>
@@ -24,11 +24,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-
-})
 const mapDispatchToProps = dispatch => ({
-  addTask: addTask()
+  addTask (values) { dispatch(addTask(values)) },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)

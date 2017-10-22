@@ -1,4 +1,5 @@
-import { ADD_TASK } from '../constants/tasks'
+import { DELETE_TASK, ADD_TASK } from '../actions/tasks'
+
 
 const initialState = [
   {id: 1, taskName: 'Test task', taskDescription: 'First task'},
@@ -8,7 +9,10 @@ const initialState = [
 export function loadTasks(state = initialState, action) {
   switch (action.type) {
     case ADD_TASK:
-      return action.payload
+      return [...state, action.payload]
+      case DELETE_TASK:
+      const taskId = action.payload
+        return [...state.filter(task => task.id !== taskId)]
     default:
       return state
   }
