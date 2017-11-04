@@ -1,6 +1,9 @@
-.taskEntity {
-  display: flex;
+td {
+  text-align: left;
+  vertical-align: middle !important;
 }
-.taskEntity p {
-  margin-right: 1rem;
+.Buton-delete {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
 }

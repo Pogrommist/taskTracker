@@ -1,30 +1,45 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import './index.css'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Button } from 'reactstrap';
+import './index.css';
 
 const TaskInput = props => {
-  const { handleSubmit } = props
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
+      <Field
+        name='id'
+        component='input'
+        type='text'
+        hidden
+        value={this.createId}
+      />
       <div>
-        <label htmlFor="taskName">Имя</label>
+        <label htmlFor='taskName'>Имя</label>
         <Field
-          name="taskName"
-          component="input"
-          type="text"
-          placeholder="Имя таска" />
+          name='taskName'
+          id='taskName'
+          component='input'
+          type='text'
+          placeholder='Имя таска'
+        />
       </div>
       <div>
-        <label htmlFor="taskDescription">Описание</label>
+        <label htmlFor='taskDescription'>Описание</label>
         <Field
-          name="taskDescription"
-          component="input"
-          type="text"
-          placeholder="Описание таска" />
+          name='taskDescription'
+          id='taskDescription'
+          component='input'
+          type='text'
+          placeholder='Описание таска'
+        />
       </div>
-      <button type="submit">Добавить Таск</button>
-    </form>
-  )
-}
 
-export default reduxForm({ form: 'TaskInput' })(TaskInput)
+      <Button color='success' type='submit'>
+        Добавить Таск
+      </Button>
+    </form>
+  );
+};
+
+export default reduxForm({ form: 'TaskInput' })(TaskInput);
