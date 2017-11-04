@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import './index.css';
-import { connect } from 'react-redux'
-import TaskInput from '../../components/TaskInput/TaskInput'
-import Tasks from '../Tasks'
-import { addTask } from '../../redux/actions/tasks'
+import { connect } from 'react-redux';
+import TaskInput from '../../components/TaskInput/TaskInput';
+import Tasks from '../Tasks';
+import { addTask } from '../../redux/actions/tasks';
 
 class App extends Component {
-  handleSubmit = (values) => {
-    console.log(values)
-    this.props.addTask(values)
-  }
+  handleSubmit = values => {
+    this.props.addTask(values);
+  };
 
-  render() {
+  render () {
     return (
-      <div className="App">
+      <div className='App'>
         <h1>Task Manager</h1>
-        <div className="task-inputs">
+        <div className='task-inputs'>
           <TaskInput onSubmit={this.handleSubmit} />
         </div>
         <Tasks />
@@ -25,7 +24,9 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addTask (values) { dispatch(addTask(values)) },
-})
+  addTask (values) {
+    dispatch(addTask(values));
+  }
+});
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App);
